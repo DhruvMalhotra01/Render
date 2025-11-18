@@ -1,0 +1,178 @@
+/* Reset & base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f6f9fc;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Hero Section */
+.hero-section {
+  height: 320px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+}
+
+/* Booking Section Layout */
+.booking-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Shared Box Style */
+.booking-form, .billing-summary {
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  flex: 1;
+  min-width: 320px;
+}
+
+/* Booking Form */
+.booking-form h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-row label {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.form-row input,
+.form-row select {
+  padding: 10px 12px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 14px;
+  background: #f9f9f9;
+}
+
+/* Cancellation Box */
+.cancellation-box {
+  background-color: #eaf6ff;
+  border-left: 4px solid #3498db;
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.cancellation-box h4 {
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #2980b9;
+}
+
+/* Button */
+button[type="submit"] {
+  width: 100%;
+  background-color: #3498db;
+  color: white;
+  padding: 14px 0;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #2471a3;
+}
+
+/* Billing Summary */
+.billing-summary h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #2c3e50;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 8px;
+}
+
+.billing-summary p {
+  font-size: 16px;
+  margin: 12px 0;
+}
+
+.billing-summary p strong {
+  color: #000;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 15px 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .booking-container {
+    flex-direction: column;
+  }
+
+  .booking-form, .billing-summary {
+    width: 100%;
+  }
+}
+/* Specific row styling for title + first + last name */
+.form-row.name-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-row.name-row label {
+  flex: 1;
+}

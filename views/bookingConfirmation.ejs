@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmed</title>
+    <link rel="stylesheet" href="/css/confirmation.css">
+</head>
+<body>
+
+    <div class="confirmation-container">
+        <div class="checkmark">&#10003;</div>
+        <h1>Booking Confirmed!</h1>
+        <p>Thank you, <%= booking.firstName %> <%= booking.lastName %>.</p>
+        <p>Your booking at <strong><%= booking.hotelName %></strong> is successfully confirmed.</p>
+        <div class="details">
+            <p><strong>Room Type:</strong> <%= booking.roomType %></p>
+            <p><strong>Check-in:</strong> <%= booking.checkin.toDateString() %></p>
+            <p><strong>Check-out:</strong> <%= booking.checkout.toDateString() %></p>
+            <p><strong>Total Amount:</strong> ₹<%= booking.totalAmount.toFixed(2) %></p>
+        </div>
+
+        <a href="/" class="back-home">Back to Home</a>
+    </div>
+    <script src="/js/storage.js"></script>
+</body>
+</html>

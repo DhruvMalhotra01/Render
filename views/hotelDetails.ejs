@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= hotel.name %> | Details</title>
+    <link rel="stylesheet" href="/css/hotelDetails.css">
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section" style="background-image: url('<%= hotel.images[0] %>');">
+        <div class="overlay">
+            <div class="hero-content">
+                <h1 class="hotel-name"><%= hotel.name %></h1>
+                <p class="hotel-location"><%= hotel.location %></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <div class="booking-container">
+        <!-- Booking Form -->
+        <form class="booking-form" action="/hotel/book" method="POST" oninput="calculateBill()">
+
+          <h2>Your Details</h2>
+          <input type="hidden" name="hotelName" value="<%= hotel.name %>">
+      
+          <div class="form-row name-row">
+          
+            <label>First Name:
+              <input type="text" name="firstName" required>
+            </label>
+          
+            <label>Last Name:
+              <input type="text" name="lastName" required>
+            </label>
+          </div>
+      
+          <div class="form-row">
+            <label>Email:
+              <input type="email" name="email" required>
+            </label>
+      
+            <label>Phone:
+              <input type="tel" name="phone" required>
+            </label>
+          </div>
+      
+          <div class="form-row">
+            <label>Room Type:
+              <select id="roomType" name="roomType" required>
+                <option value="Standard">Standard - ₹3000</option>
+                <option value="Deluxe">Deluxe - ₹5000</option>
+                <option value="Suite">Suite - ₹8000</option>
+              </select>
+            </label>
+          </div>
+      
+          <div class="form-row">
+            <label>Check-in:
+              <input type="date" id="checkin" name="checkin" required>
+            </label>
+      
+            <label>Check-out:
+              <input type="date" id="checkout" name="checkout" required>
+            </label>
+          </div>
+          <div class="cancellation-box">
+            <h4>Cancellation Policy</h4>
+            <p>You can cancel your booking up to 24 hours before check-in without any charge. Post that, a 50% fee applies.</p>
+          </div>
+          
+      
+          <button type="submit">Confirm Booking</button>
+        </form>
+      
+        <!-- Billing Summary -->
+        <div class="billing-summary">
+          <h2>Billing Summary</h2>
+          <p><strong><span id="billing-room">Room Type</span></strong></p>
+          <p><strong><span id="billing-room-price">₹0 / night</span></strong></p>
+          <hr>
+          <p>Base Price: <span id="billing-base">₹0</span></p>
+          <p>Stay Duration: <span id="billing-nights">0 night(s)</span></p>
+          <p>Tax (12%): <span id="billing-tax">₹0</span></p>
+          <hr>
+          <p><strong>Total Price: <span id="billing-total">₹0</span></strong></p>
+        </div>
+        
+      </div>
+      
+      <script>
+        function calculateBill() {
+          const roomData = {
+            "Standard": 3000,
+            "Deluxe": 5000,
+            "Suite": 8000
+          };
+      
+          const roomType = document.getElementById('roomType').value;
+          const pricePerNight = roomData[roomType];
+      
+          const checkin = new Date(document.getElementById('checkin').value);
+          const checkout = new Date(document.getElementById('checkout').value);
+      
+          if (isNaN(checkin) || isNaN(checkout) || checkout <= checkin) {
+            document.getElementById('billing-room').innerText = roomType;
+            document.getElementById('billing-room-price').innerText = `₹${pricePerNight} / night`;
+            document.getElementById('billing-base').innerText = '₹0';
+            document.getElementById('billing-nights').innerText = '0 night(s)';
+            document.getElementById('billing-tax').innerText = '₹0';
+            document.getElementById('billing-total').innerText = '₹0';
+            return;
+          }
+      
+          const nights = Math.ceil((checkout - checkin) / (1000 * 60 * 60 * 24));
+          const basePrice = pricePerNight * nights;
+          const tax = basePrice * 0.12;
+          const total = basePrice + tax;
+      
+          document.getElementById('billing-room').innerText = roomType;
+          document.getElementById('billing-room-price').innerText = `₹${pricePerNight} / night`;
+          document.getElementById('billing-base').innerText = '₹' + basePrice;
+          document.getElementById('billing-nights').innerText = nights + ' night(s)';
+          document.getElementById('billing-tax').innerText = '₹' + tax.toFixed(2);
+          document.getElementById('billing-total').innerText = '₹' + total.toFixed(2);
+        }
+      </script>
+      <script src="/js/storage.js"></script>
+</body>
+
+</html>

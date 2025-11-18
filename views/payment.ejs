@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Payment</title>
+  <link rel="stylesheet" href="/css/payment.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Confirm Your <%= type === 'room' ? 'Room' : 'Dining' %> Booking</h1>
+
+    <div class="item-card">
+      <img src="<%= item.image %>" alt="" />
+      <div>
+        <h2><%= item.type || item.name %></h2>
+        <p><%= item.description %></p>
+        <% if (type === 'room') { %>
+          <p><strong>Price Per Night:</strong> ₹<%= item.price %></p>
+        <% } else { %>
+          <p><strong>Estimated Price:</strong> ₹500</p>
+        <% } %>
+      </div>
+    </div>
+
+    <form action="/payment" method="POST">
+      <input type="hidden" name="type" value="<%= type %>" />
+      <input type="hidden" name="hotelId" value="<%= hotel._id %>" />
+      <input type="hidden" name="index" value="<%= index %>" />
+
+      <label>Name</label>
+      <input type="text" name="name" required />
+      <label>Email</label>
+      <input type="email" name="email" required />
+      <label>Phone</label>
+      <input type="text" name="phone" required />
+      <label>Check-In Date</label>
+      <input type="date" name="checkinDate" required />
+      <label>Check-Out Date</label>
+      <input type="date" name="checkoutDate" required />
+
+      <button type="submit">Confirm Booking</button>
+    </form>
+  </div>
+  <script src="/js/storage.js"></script>
+</body>
+</html>

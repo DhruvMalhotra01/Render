@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Login - Orchid Hotels</title>
+    <link rel="stylesheet" href="/css/login.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-left">
+            <img src="/images/img4.jpeg" alt="Orchid Hotel" />
+            <div class="overlay">
+                <h1>Welcome Back to Orchid</h1>
+                <p>Your luxury experience awaits. Sign in to manage your bookings and explore more.</p>
+            </div>
+        </div>
+
+        <div class="login-right">
+            <form action="/login" method="POST" class="login-form">
+                <h2>Login</h2>
+                <% if (error) { %>
+                    <div class="error-message"><%= error %></div>
+                <% } %>
+
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" required placeholder="Enter your email" />
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" required placeholder="Enter your password" />
+                </div>
+
+                <button type="submit" class="btn-login">Sign In</button>
+
+                <p class="signup-link">
+                    Don't have an account?
+                    <a href="/signup">Sign Up here</a>
+                </p>
+            </form>
+        </div>
+        <% if (typeof error !== 'undefined' && error) { %>
+          <div class="error-message"><%= error %></div>
+      <% } %>
+      
+    </div>
+    <script src="/js/storage.js"></script>
+</body>
+</html>

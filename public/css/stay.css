@@ -1,0 +1,497 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f5f5;
+    font-family: Cinzel, "Palatino Linotype", sans-serif;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 75vh;
+    background: url('https://png.pngtree.com/background/20230425/original/pngtree-grand-piano-in-a-hotel-room-picture-image_2467346.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+#search-btn {
+  padding: 10px 20px;
+  background-color: #b48c4c; /* warm gold tone */
+  color: white;
+  border: none;
+  border-radius: 25px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+#search-btn:hover {
+  background-color: #a47c3a;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+}
+
+.content h1 {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 10px;
+    border-radius: 30px;
+    width: 600px;
+    max-width: 90%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.search-box i {
+    font-size: 18px;
+    margin: 0 10px;
+    color: gray;
+}
+
+.explore {
+    text-align: center;
+    padding: 50px 20px;
+    margin-top: -30px;
+}
+
+.explore h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.explore p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: auto;
+    color: #555;
+}
+
+.container {
+    text-align: center;
+    max-width: 7000px;
+    text-align: center;
+   
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+   
+}
+
+.title::before,
+.title::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 80px;
+    height: 1px;
+    background-color: black;
+}
+
+.title::before {
+    left: -90px;
+}
+
+.title::after {
+    right: -90px;
+}
+
+.container h2 {
+    font-family: Cinzel, Palatino Linotype, sans-serif;
+    color: rgb(169, 146, 28);
+    font-size: xx-large;
+    font-weight: 300;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #333;
+    margin-top: 10px;
+    line-height: 1.5;
+    
+    
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.subtitle p {
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+.container1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 30px;
+    justify-content: center;
+    max-width: 900px;
+    margin: auto;
+}
+
+@media (max-width: 768px) {
+    .container1 {
+        grid-template-columns: repeat(1, 1fr); 
+    }
+}
+
+.card {
+    width: 550px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.book-now {
+    background: #b28d4a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.book-now:hover {
+    background: #a0803f;
+}
+
+.more {
+    font-size: 14px;
+    color: #b28d4a;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.more:hover {
+    text-decoration: underline;
+}
+
+.deck-container {
+    display: flex;
+    height: 30rem;
+    margin: 0 auto;
+    max-width: 70vw;
+    width: 75vw;
+    margin-bottom: 50px;
+}
+
+.select-toggle {
+    display: none;
+}
+
+.card-box {
+    background: transparent;
+    background-image: url("https://images.pexels.com/photos/26886814/pexels-photo-26886814/free-photo-of-double-bed-under-crystal-chandelier-in-luxury-bedroom.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 3rem;
+    cursor: pointer;
+    flex: 1;
+    margin-right: 0.8rem;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.05, 0.60, 0.39, 0.94);
+}
+
+.card-box::before {
+    background: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
+.card-box > * {
+    position: relative;
+    z-index: 1;
+}
+
+.card-box:hover {
+    box-shadow: 0.7rem 0.7rem 0.5rem rgba(0, 0, 0, 0.3);
+}
+
+.card-box:nth-of-type(2) {
+    background-image: url("https://images.pexels.com/photos/53464/sheraton-palace-hotel-lobby-architecture-san-francisco-53464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+}
+
+.card-box:nth-of-type(3) {
+    background-image: url("https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+}
+
+.card-box:nth-of-type(4) {
+    background-image: url("https://images.pexels.com/photos/460537/pexels-photo-460537.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+}
+
+.additional-info {
+    bottom: 1.2rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.6rem;
+    left: 1.5rem;
+    font-family: Cinzel, Palatino Linotype, sans-serif;
+    line-height: 1.1;
+    opacity: 0;
+    position: absolute;
+    transform: translateX(2rem);
+    transition: 290ms cubic-bezier(0.05, 0.62, 0.40, 0.95) 300ms;
+    transition-property: opacity, transform;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.main-heading {
+    top: 2rem;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+    left: 1.5rem;
+    line-height: 1.1;
+    opacity: 0;
+    position: absolute;
+    transform: translateX(2rem);
+    transition: 290ms cubic-bezier(0.05, 0.60, 0.42, 0.94) 300ms;
+    transition-property: opacity, transform;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.secondary-text {
+    font-size: 1rem;
+}
+
+.extra-detail {
+    font-size: 0.85rem;
+}
+
+.padding-adjust {
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.select-toggle:checked + .card-box {
+    border-radius: 2rem;
+    box-shadow: 0.3rem 0.3rem 0.4rem rgba(0, 0, 0, 0.3);
+    flex: 9;
+}
+
+.select-toggle:checked + .card-box > .additional-info {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.select-toggle:checked + .card-box > .main-heading {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.heading-space {
+    margin-bottom: 1.5rem;
+}
+
+.food-section {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1000px;
+    margin-left: 10%;
+    gap: 150px;
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+    color: #a37c40;
+}
+
+.divider {
+    width: 50px;
+    height: 2px;
+    background-color: #333;
+    margin-bottom:30px;
+}
+
+h2 {
+    font-size: 40px;
+    color: #a37c40;
+    line-height: 1.2;
+    margin: 0;
+    font-family: Cinzel, Palatino Linotype, sans-serif;
+    font-weight: 200;
+}
+
+.description {
+    max-width: 600px;
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.learn-more {
+    font-size: 14px;
+    color: #a37c40;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.learn-more:hover {
+    text-decoration: underline;
+}
+
+.signature-dining {
+    margin-top: -200px;
+    padding: 40px;
+}
+
+.third {
+    background-color: white;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    height: 800px;
+}
+.footer {
+    background-color: #101820;
+    color: #ffffff;
+    padding: 40px 20px 20px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .footer-section h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    border-bottom: 2px solid #ffffff50;
+    padding-bottom: 5px;
+  }
+  
+  .footer-logo {
+    width: 120px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-section p, .footer-section a {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #cccccc;
+    text-decoration: none;
+  }
+  
+  .footer-section a:hover {
+    color: #ffffff;
+  }
+  
+  .social-icons a {
+    color: #ffffff;
+    margin-right: 10px;
+    font-size: 18px;
+  }
+  
+  .social-icons a:hover {
+    color: #ffd700;
+  }
+  
+  .map-container iframe {
+    width: 100%;
+    height: 150px;
+    border: none;
+    border-radius: 8px;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 14px;
+    border-top: 1px solid #ffffff30;
+  }
+  
