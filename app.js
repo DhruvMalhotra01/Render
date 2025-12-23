@@ -15,14 +15,8 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-/* ===========================
-   TRUST PROXY (Render/Heroku)
-=========================== */
 app.set("trust proxy", 1);
 
-/* ===========================
-   DATABASE CONNECTION
-=========================== */
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("✅ MongoDB connected successfully"))
   .catch(err => {
@@ -30,9 +24,6 @@ mongoose.connect(process.env.MONGO_URI)
     process.exit(1);
   });
 
-/* ===========================
-   MIDDLEWARE
-=========================== */
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -44,16 +35,12 @@ app.use(express.static(path.join(__dirname, "public"), {
 app.set("view engine", "ejs");
 app.use(logger);
 
-/* ===========================
-   SESSION CONFIG
-=========================== */
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   store: MongoStore.create({
-    mongoUrl: process.env.MONGO_URI,
-    ttl: 24 * 60 * 60
+    client: mongoose.connection.getClient()
   }),
   cookie: {
     maxAge: 1000 * 60 * 60 * 24,
@@ -62,9 +49,6 @@ app.use(session({
   }
 }));
 
-/* ===========================
-   ROUTES
-=========================== */
 app.use("/hotel", hotelRoutes);
 app.use("/", authRoutes);
 
@@ -76,14 +60,8 @@ app.get("/", (req, res) => {
   res.render("app");
 });
 
-/* ===========================
-   ERROR HANDLER
-=========================== */
 app.use(errorHandler);
 
-/* ===========================
-   START SERVER
-=========================== */
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT} in ${process.env.NODE_ENV || "development"} mode`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`🚀 Server running on port ${PORT}`);
 });
