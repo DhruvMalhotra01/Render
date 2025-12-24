@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Hotel = require("../models/hotel");
+const Hotel = require("../models/Hotel");
 const Booking = require("../models/Booking");
 const validateBooking = require("../middleware/validateBooking");
 router.get("/:name", async (req, res) => {
